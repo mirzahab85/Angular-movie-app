@@ -9,15 +9,17 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './tvshow-details.component.html',
-  styleUrl: './tvshow-details.component.css'
+  styleUrls: ['./tvshow-details.component.css']
 })
 export class TvshowDetailsComponent implements OnInit{
   id: string = '';
   details: any = {}; // Initialize details as empty object
-  load: boolean = false;
+  loading: boolean = false;
   error: string = '';
   placeholderImageUrl = 'https://image.tmdb.org/t/p/w500'; // Replace with your placeholder image path
   status: any;
+
+
 
   constructor(private _ActivateRoute: ActivatedRoute, private _TVService: TvService) {}
 
@@ -37,17 +39,17 @@ export class TvshowDetailsComponent implements OnInit{
   }
 
   loadTVDetails(id: string): void {
-    this.load = true;
+    this.loading = true;
     this.error = ''; // Clear any previous error message
 
     this._TVService.getDetails(id).subscribe(
       (response: any) => {
         this.details = response;
-        this.load = false;
+        this.loading = false;
       },
       error => {
         this.error = 'Error loading tv details: ' + error.message;
-        this.load = false;
+        this.loading = false;
       }
     );
   }

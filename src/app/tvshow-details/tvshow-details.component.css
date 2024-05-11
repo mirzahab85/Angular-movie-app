@@ -1,0 +1,25 @@
+.movie-details {
+  padding: 20px;
+  display: flex; /* Enable two-column layout */
+}
+
+.movie-details img {
+  width: 30%; /* Set image width to full width */
+  object-fit: cover; /* Scale image to fit container while maintaining aspect ratio */
+}
+
+.details-content {
+  flex: 1; /* Allow text content to fill remaining space */
+  padding: 1rem; /* Add some padding for readability */
+  display: flex; /* Enable flexbox layout for single column */
+  flex-direction: column; /* Stack elements vertically */
+  margin-bottom: 0.5rem; /* Optional: Add some margin below the content */
+}
+
+.details-content * { /* Optional styles for content within details-content */
+  margin-bottom: 0.5rem; /* Optional: Add some margin between elements */
+}
+
+.details-content p {
+  width: 100%; /* Set width of paragraphs to 100% of available space */
+}
