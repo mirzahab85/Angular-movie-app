@@ -1,0 +1,36 @@
+<div class="movie-details" *ngIf="!loading && !error">
+
+    <img *ngIf="details" [src]="placeholderImageUrl+details.poster_path" alt="{{ details.title }}" >
+    <img *ngIf="details.getImageUrl || error" src="{{ placeholderImageUrl }}" alt="Movie poster unavailable">
+  
+    <div class="details-content">
+      <h2>{{ details.title }}</h2>
+      <p>{{ details.overview }}</p>
+      <p><strong>Release Date: </strong> {{ details.release_date }}</p>
+      <p><strong>Runtime: </strong> {{ details?.runtime }}</p>
+      <p *ngIf="details?.genres?.length">
+        <span class="label"><strong>Genre: </strong></span>
+        <span *ngFor="let genre of details.genres"> {{ genre.name }} </span>
+      </p>
+      <p><strong>Vote Average: </strong> {{ details.vote_average }}</p>
+      <p *ngIf="status">
+        <span class="label">Status: </span>
+        <span>{{ status }}</span>
+      </p>
+      <p *ngIf="details?.original_language">
+        <span class="label"><strong>Language: </strong> </span>
+        <span>{{ getLanguageText(details.original_language).toUpperCase() }}</span>
+      </p>
+      
+    </div>
+  
+  </div>
+  
+  <div class="error-message" *ngIf="error">
+    {{ error }}
+  </div>
+  
+  <div *ngIf="loading">
+    Loading movie details...
+  </div>
+  

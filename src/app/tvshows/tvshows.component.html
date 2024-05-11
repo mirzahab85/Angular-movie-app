@@ -1,0 +1,12 @@
+
+<!-- movies.component.html -->
+<div class="tvhows-container">
+<div *ngFor="let tvshows of topRatedTVShows" class="tvshows-item" (click)="onTvShowClicked(tvshows)"> 
+  <a [routerLink]="['/tvshow-details', tvshows.id]">
+  <img [src]="tvservice.getImageUrl(tvshows.poster_path)" alt="{{ tvshows.title }}">
+  <h3>{{ tvshows.name }}</h3>
+</a>
+  <!-- Add more details as needed -->
+</div>
+</div>
+

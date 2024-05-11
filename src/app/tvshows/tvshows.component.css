@@ -1,0 +1,33 @@
+.tvhows-container {
+    display: flex;
+    padding: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tvshows-item {
+    width: calc(20% - 16px);
+    display: flex;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.tvshows-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tvshows-item h3 {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tvshows-item h3,
+.tvshows-item p {
+    margin: 30px 0;
+}

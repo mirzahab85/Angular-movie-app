@@ -1,0 +1,8 @@
+<div class="movies-container">
+  <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
+    <a [routerLink]="['/movie-details', movie.id]">
+      <img [src]="moviesService.getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
+      <h3>{{ movie.title }}</h3>
+    </a>
+  </div>
+</div>

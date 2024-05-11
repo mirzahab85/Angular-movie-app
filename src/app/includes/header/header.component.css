@@ -1,0 +1,18 @@
+ul {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    justify-content: flex-end; /* Align items to the right */
+    background-color: #000;
+  }
+  
+  li {
+    padding: 10px;
+  }
+
+  li a {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+  }
