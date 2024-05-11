@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MoviesService } from '../services/movie.service';
+import { TvService } from '../services/tv.service';
 import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-tvshow-details',
@@ -13,12 +14,12 @@ import { CommonModule } from '@angular/common';
 export class TvshowDetailsComponent implements OnInit{
   id: string = '';
   details: any = {}; // Initialize details as empty object
-  loading: boolean = false;
+  load: boolean = false;
   error: string = '';
   placeholderImageUrl = 'https://image.tmdb.org/t/p/w500'; // Replace with your placeholder image path
   status: any;
 
-  constructor(private _ActivateRoute: ActivatedRoute, private _MoviesService: MoviesService) {}
+  constructor(private _ActivateRoute: ActivatedRoute, private _TVService: TvService) {}
 
   ngOnInit(): void {
     this._ActivateRoute.params.subscribe(params => {
@@ -36,17 +37,17 @@ export class TvshowDetailsComponent implements OnInit{
   }
 
   loadTVDetails(id: string): void {
-    this.loading = true;
+    this.load = true;
     this.error = ''; // Clear any previous error message
 
-    this._MoviesService.getDetails(id).subscribe(
+    this._TVService.getDetails(id).subscribe(
       (response: any) => {
         this.details = response;
-        this.loading = false;
+        this.load = false;
       },
       error => {
-        this.error = 'Error loading movie details: ' + error.message;
-        this.loading = false;
+        this.error = 'Error loading tv details: ' + error.message;
+        this.load = false;
       }
     );
   }

@@ -1,4 +1,4 @@
-<div class="movie-details" *ngIf="!loading && !error">
+<div class="movie-detailss" *ngIf="!load && !error">
 
     <img *ngIf="details" [src]="placeholderImageUrl+details.poster_path" alt="{{ details.title }}" >
     <img *ngIf="details.getImageUrl || error" src="{{ placeholderImageUrl }}" alt="Movie poster unavailable">
@@ -30,7 +30,7 @@
     {{ error }}
   </div>
   
-  <div *ngIf="loading">
+  <div *ngIf="load">
     Loading movie details...
   </div>
   

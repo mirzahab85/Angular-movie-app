@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TvService } from '../services/tv.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,10 +14,9 @@ export class TvshowsComponent implements OnInit {
   topRatedTVShows: any;
   responsiveOptions;
   loading: boolean = true;
-  router: any;
 
 
-  constructor(public tvservice: TvService) {
+  constructor(public tvservice: TvService, private router: Router) {
     this.responsiveOptions = [
       {
           breakpoint: '1024px',
