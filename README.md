@@ -13,8 +13,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Instalation
 
 git clone https://github.com/mirzahab85/Angular-movie-app.git
+
 cd Angular-movie-app
+
 npm install
+
 ng serve and go to http://localhost:4200/
 
 <p align="center">
