@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TvService {
+  getTopRatedTV() {
+    throw new Error('Method not implemented.');
+  }
   getTVeDetails(id: string) {
   throw new Error('Method not implemented.');
   }

@@ -1,6 +1,23 @@
-
-<div>
-<p>home works!</p>
+<div class="home-container">
+    <div class="top-movies">
+    <h2>Top 10 Movies</h2>
+    <div class="movies-container">
+      <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
+        <a [routerLink]="['/movie-details', movie.id]">
+          <img [src]="moviesService.getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
+          <h3>{{ movie.title }}</h3>
+        </a>
+      </div>
+    </div>
 </div>
-
-
+<div class="top-tvshow">
+    <h2>Top 10 TV Shows</h2>
+    <div class="tvshow-container">
+      <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
+        <a [routerLink]="['/movie-details', movie.id]">
+          <img [src]="moviesService.getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
+          <h3>{{ movie.title }}</h3>
+        </a>
+      </div>
+    </div>
+  
