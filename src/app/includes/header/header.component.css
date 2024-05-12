@@ -1,18 +1,65 @@
-ul {
-    display: flex;
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-    justify-content: flex-end; /* Align items to the right */
-    background-color: #000;
+/* Hamburger menu styles */
+.hamburger-menu {
+ /* Initially hide the hamburger menu */
+  cursor: pointer;
+}
+
+.menu-1, .menu-2, .menu-3 {
+  width: 25px;
+  height: 3px;
+  background-color: #fff; /* White color for the hamburger lines */
+  margin: 5px 0;
+  transition: transform 0.4s ease;
+}
+
+.open .menu-1 {
+  transform: rotate(-45deg) translate(-5px, 5px);
+}
+
+.open .menu-2 {
+  opacity: 0;
+}
+
+.open .menu-3 {
+  transform: rotate(45deg) translate(-5px, -5px);
+}
+
+/* Navigation menu styles */
+.navigation-menu {
+  display: flex;
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  justify-content: flex-end; /* Align items to the right */
+  background-color: #000; /* Black background color for navigation menu */
+}
+
+.navigation-menu img {
+  width: 100px; /* Adjust the width of the logo */
+}
+
+.navigation-menu li {
+  padding: 10px;
+}
+
+.navigation-menu li a {
+  color: #fff; /* White color for the navigation menu links */
+  font-size: 18px;
+  text-decoration: none;
+}
+
+/* Media query for all mobile devices */
+@media screen and (max-width: 992px) {
+  .hamburger-menu {
+    display: block; /* Display the hamburger menu on all mobile devices */
   }
   
-  li {
-    padding: 10px;
+  .navigation-menu {
+    display: none; /* Hide the navigation menu on all mobile devices */
   }
 
-  li a {
-    color: #ffffff;
-    font-size: 18px;
-    text-decoration: none;
+  /* Change hamburger icon to black */
+  .menu-1, .menu-2, .menu-3 {
+    background-color: #000;
   }
+}

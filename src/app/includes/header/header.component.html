@@ -1,6 +1,14 @@
-<ul class="navigation-meni">
-    <img src="/src/assets/images/logo.png">
-    <li (click)="navigateTo('/home')"><a routerLink="/">Home</a></li>
-      <li (click)="navigateTo('/movies')"><a routerLink="/movies.id">MOVIES</a></li>
-      <li (click)="navigateTo('/tvshows')"><a routerLink="/tvshows">TV SHOWS</a></li>
-    </ul>
+<!-- Hamburger icon -->
+<div class="hamburger-menu" onclick="toggleMenu()">
+  <div class="menu-1"></div>
+  <div class="menu-2"></div>
+  <div class="menu-3"></div>
+</div>
+
+<!-- Navigation menu -->
+<ul class="navigation-menu">
+  <img src="/src/assets/images/logo.png">
+  <li (click)="navigateTo('/home')"><a routerLink="/">Home</a></li>
+  <li (click)="navigateTo('/movies')"><a routerLink="/movies.id">MOVIES</a></li>
+  <li (click)="navigateTo('/tvshows')"><a routerLink="/tvshows">TV SHOWS</a></li>
+</ul>
