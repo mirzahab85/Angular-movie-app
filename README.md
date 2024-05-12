@@ -8,9 +8,19 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Code scaffolding
 
-![Project Image](assets/project.png)
-
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Instalation
+
+git clone https://github.com/mirzahab85/Angular-movie-app.git
+cd Angular-movie-app
+npm install
+ng serve and go to http://localhost:4200/
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/mirzahab85/angular-movie-app/master/src/assets/project.png" alt="Project Image">
+</p>
+
 
 ## Build
 
