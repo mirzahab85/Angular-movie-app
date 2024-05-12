@@ -24,3 +24,28 @@
     width: 100%; /* Set width of paragraphs to 100% of available space */
   }
   
+  
+  .back-button-container {
+    text-align: center; /* Centers the button horizontally */
+    margin-top: 40px; /* Adjust margin top as needed */
+    
+  }
+  
+  .back-button {
+    padding: 10px 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 15%;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+
+  

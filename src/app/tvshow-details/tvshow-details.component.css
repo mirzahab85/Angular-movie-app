@@ -1,14 +1,14 @@
-.movie-details {
+.tv-details {
   padding: 20px;
   display: flex; /* Enable two-column layout */
 }
 
-.movie-details img {
+.tv-details img {
   width: 30%; /* Set image width to full width */
   object-fit: cover; /* Scale image to fit container while maintaining aspect ratio */
 }
 
-.details-content {
+.tv-details-content {
   flex: 1; /* Allow text content to fill remaining space */
   padding: 1rem; /* Add some padding for readability */
   display: flex; /* Enable flexbox layout for single column */
@@ -16,10 +16,27 @@
   margin-bottom: 0.5rem; /* Optional: Add some margin below the content */
 }
 
-.details-content * { /* Optional styles for content within details-content */
+.tv-details-content * { /* Optional styles for content within details-content */
   margin-bottom: 0.5rem; /* Optional: Add some margin between elements */
 }
 
-.details-content p {
+.tv-details-content p {
   width: 100%; /* Set width of paragraphs to 100% of available space */
 }
+
+ .back-button {
+    padding: 10px 40px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 15%;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }

@@ -7,7 +7,7 @@
     <h2>{{ details.title }}</h2>
     <p>{{ details.overview }}</p>
     <p><strong>Release Date: </strong> {{ details.release_date }}</p>
-    <p><strong>Runtime: </strong> {{ details?.runtime }}</p>
+    <p><strong>Runtime: </strong> {{ details?.runtime }} minutes</p>
     <p *ngIf="details?.genres?.length">
       <span class="label"><strong>Genre: </strong></span>
       <span *ngFor="let genre of details.genres"> {{ genre.name }} </span>
@@ -21,9 +21,10 @@
       <span class="label"><strong>Language: </strong> </span>
       <span>{{ getLanguageText(details.original_language).toUpperCase() }}</span>
     </p>
-    
+    <div>
+    <button class="back-button" (click)="goBack()">Back</button>
   </div>
-
+  </div>
 </div>
 
 <div class="error-message" *ngIf="error">

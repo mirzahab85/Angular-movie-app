@@ -1,12 +1,14 @@
-<div class="movie-details" *ngIf="!loading && !error">
+<div class="tv-details" *ngIf="!loading && !error">
 
   <img *ngIf="details" [src]="placeholderImageUrl+details.poster_path" alt="{{ details.title }}" (error)="handleImageError($event)">
   <img *ngIf="details.getImageUrl || error" src="{{ placeholderImageUrl }}" alt="Movie poster unavailable">
 
-  <div class="details-content">
-    <h2>{{ details.name || 'No Title Available' }}</h2>  <p>{{ details.overview }}</p>
-    <p><strong>Release Date: </strong> {{ details.release_date }}</p>
-    <p><strong>Runtime: </strong> {{ details?.runtime }}</p>
+  <div class="tv-details-content">
+    <h2>{{ details.name }}</h2>  <p>{{ details.overview }}</p>
+    <p><strong>First Aired: </strong> {{ details.release_date || details.first_air_date }} </p>
+    <p><strong>Last Aired: </strong> {{ details.release_date || details.last_air_date }}</p>
+
+    <p><strong>Runtime: </strong> {{ details.run_time }}minutes</p>
     <p *ngIf="details?.genres?.length">
       <span class="label"><strong>Genre: </strong></span>
       <span *ngFor="let genre of details.genres"> {{ genre.name }} </span>
@@ -20,8 +22,11 @@
       <span class="label"><strong>Language: </strong></span>
       <span>{{ getLanguageText(details.original_language).toUpperCase() }}</span>
     </p>
+    <div>
+      <button class="back-button" (click)="goBack()">Back</button>
+    </div>
   </div>
-
+  
 </div>
 
 <div class="error-message" *ngIf="error">

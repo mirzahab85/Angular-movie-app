@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MoviesService } from '../services/movie.service';
-
+import { Location } from '@angular/common'; // Import Location service
 
 @Component({
   selector: 'app-movie-details',
@@ -11,13 +11,17 @@ import { MoviesService } from '../services/movie.service';
 export class MovieDetailsComponent implements OnInit {
 
   id: string = '';
-  details: any = {}; // Initialize details as empty object
+  details: any = {};
   loading: boolean = false;
   error: string = '';
-  placeholderImageUrl = 'https://image.tmdb.org/t/p/w500'; // Replace with your placeholder image path
+  placeholderImageUrl = 'https://image.tmdb.org/t/p/w500';
   status: any;
+  
+  constructor(private _ActivateRoute: ActivatedRoute, private _MoviesService: MoviesService, private location: Location) {}
 
-  constructor(private _ActivateRoute: ActivatedRoute, private _MoviesService: MoviesService) {}
+  goBack(): void {
+    this.location.back(); // Use Location service to navigate back
+  }
 
   ngOnInit(): void {
     this._ActivateRoute.params.subscribe(params => {
@@ -28,15 +32,15 @@ export class MovieDetailsComponent implements OnInit {
 
   getLanguageText(language: string | { name: string; code: string }): string {
     if (typeof language === 'string') {
-      return language; // Assuming language is just a code
+      return language;
     } else {
-      return language.name || language.code; // Return name or code as fallback
+      return language.name || language.code;
     }
   }
 
   loadMovieDetails(id: string): void {
     this.loading = true;
-    this.error = ''; // Clear any previous error message
+    this.error = '';
 
     this._MoviesService.getDetails(id).subscribe(
       (response: any) => {
@@ -52,7 +56,6 @@ export class MovieDetailsComponent implements OnInit {
 
   handleImageError(event: any) {
     console.error('Image loading error:', event);
-    // Optional: Display a user-friendly message or a placeholder image here
-    event.target.src = this.placeholderImageUrl; // Set placeholder image on error
+    event.target.src = this.placeholderImageUrl;
   }
 }

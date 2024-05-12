@@ -1,17 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common'; // Import Location service
 import { TvService } from '../services/tv.service';
-import { CommonModule } from '@angular/common';
-
 
 @Component({
   selector: 'app-tvshow-details',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './tvshow-details.component.html',
   styleUrls: ['./tvshow-details.component.css']
 })
-export class TvshowDetailsComponent implements OnInit{
+export class TvshowDetailsComponent implements OnInit {
   id: string = '';
   details: any = {}; // Initialize details as empty object
   loading: boolean = false;
@@ -19,18 +16,27 @@ export class TvshowDetailsComponent implements OnInit{
   placeholderImageUrl = 'https://image.tmdb.org/t/p/w500'; // Replace with your placeholder image path
   status: any;
 
+  constructor(
+    private _ActivateRoute: ActivatedRoute,
+    private _TVService: TvService,
+    private _Router: Router,
+    private location: Location
+  ) {}
 
-
-  constructor(private _ActivateRoute: ActivatedRoute, private _TVService: TvService) {}
+  goBack(): void {
+    this.location.back(); // Go back to the previous location
+  }
 
   ngOnInit(): void {
-    this._ActivateRoute.params.subscribe(params => {
+    this._ActivateRoute.params.subscribe((params) => {
       this.id = params['id'];
       this.loadTVDetails(this.id);
     });
   }
 
-  getLanguageText(language: string | { name: string; code: string }): string {
+  getLanguageText(
+    language: string | { name: string; code: string }
+  ): string {
     if (typeof language === 'string') {
       return language; // Assuming language is just a code
     } else {
@@ -47,7 +53,7 @@ export class TvshowDetailsComponent implements OnInit{
         this.details = response;
         this.loading = false;
       },
-      error => {
+      (error) => {
         this.error = 'Error loading tv details: ' + error.message;
         this.loading = false;
       }
