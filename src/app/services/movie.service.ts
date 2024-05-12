@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MoviesService {
+  
   getTopRatedTvShows() {
     throw new Error('Method not implemented.');
   }
@@ -26,6 +27,10 @@ export class MoviesService {
 }
   getTopRatedMovies(): Observable<any> {
     return this.http.get(`${this.apiUrl}/movie/top_rated?api_key=${this.apiKey}`);
+  }
+
+  searchMovies(searchTerm: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search/movie?api_key=${this.apiKey}&query=${searchTerm}`);
   }
 
   getImageUrl(posterPath: string): string {

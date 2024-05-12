@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MoviesService } from '../services/movie.service';
+import { Observable, Subject, timer } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movies',
@@ -12,6 +14,8 @@ export class MoviesComponent implements OnInit {
   topRatedMovies: any;
   responsiveOptions: any[];
   loading: boolean = true;
+  searchTerm: string = ''; // Add searchTerm property
+  private searchTerms = new Subject<string>();
 
   constructor(public moviesService: MoviesService, private router: Router) { // Inject Router
     this.responsiveOptions = [
@@ -21,6 +25,18 @@ export class MoviesComponent implements OnInit {
           numScroll: 3
       }
     ];
+
+    // Subscribe to searchTerms subject with debounceTime and distinctUntilChanged operators
+    this.searchTerms.pipe(
+      debounceTime(1000), // Wait for 1 second after the user stops typing
+      distinctUntilChanged() // Only emit distinct consecutive values
+    ).subscribe(searchTerm => {
+      if (searchTerm.length >= 3) {
+        this.searchMovies(searchTerm);
+      } else {
+        this.loadTopRatedMovies();
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -31,6 +47,17 @@ export class MoviesComponent implements OnInit {
     this.moviesService.getTopRatedMovies().subscribe((data: any) => {
       this.topRatedMovies = data.results.slice(0, 10);
     });
+  }
+
+  searchMovies(searchTerm: string): void {
+    this.moviesService.searchMovies(searchTerm).subscribe((data: any) => {
+      this.topRatedMovies = data.results;
+    });
+  }
+
+  onSearchInput(event: any): void {
+    const searchTerm = event.target.value.trim();
+    this.searchTerms.next(searchTerm); // Emit the search term to the searchTerms subject
   }
 
   onMovieClicked(movie: any) {

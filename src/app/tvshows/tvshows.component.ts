@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TvService } from '../services/tv.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Observable, Subject, timer } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -41,4 +43,3 @@ export class TvshowsComponent implements OnInit {
     this.router.navigate(['/tvshow-details', tvId]); // Use movie.id to navigate
   }
 }
-

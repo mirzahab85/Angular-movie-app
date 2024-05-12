@@ -8,6 +8,7 @@ import { TvshowsComponent } from './tvshows/tvshows.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { TvshowDetailsComponent } from './tvshow-details/tvshow-details.component';
 
+
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
