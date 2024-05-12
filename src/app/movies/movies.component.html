@@ -1,8 +1,8 @@
+
+
 <div class="search-container">
   <input type="text" placeholder="Search movies..." (input)="onSearchInput($event)">
 </div>
-
-
 <div class="movies-container">
   <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
     <a [routerLink]="['/movie-details', movie.id]">
