@@ -1,4 +1,4 @@
-// movies.service.ts
+// tv.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,26 +7,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TvService {
-  getTopRatedTV() {
-    throw new Error('Method not implemented.');
-  }
-  getTVeDetails(id: string) {
-  throw new Error('Method not implemented.');
-  }
-  getTV: any;
-  getTVById(movieId: string) {
-    throw new Error('Method not implemented.');
-  }
-
   apiUrl: string;
   apiKey: string;
   
   constructor(private http: HttpClient) { 
     this.apiUrl = 'https://api.themoviedb.org/3';
     this.apiKey = '8ba4e4851dc842dbe52a04fffede9da2'; // Replace with your actual API key
-}
+  }
+
   getTopRatedTvShows(): Observable<any> {
     return this.http.get(`${this.apiUrl}/tv/top_rated?api_key=${this.apiKey}`);
+  }
+
+  searchTvShow(searchTerm: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/search/tv?api_key=${this.apiKey}&query=${searchTerm}`);
   }
 
   getImageUrl(posterPath: string): string {
@@ -35,8 +29,7 @@ export class TvService {
     return `https://image.tmdb.org/t/p/w500${posterPath}`;
   }
 
-  getDetails(id:string):Observable<any> {
+  getDetails(id: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/tv/${id}?api_key=${this.apiKey}`);
   }
-
 }
