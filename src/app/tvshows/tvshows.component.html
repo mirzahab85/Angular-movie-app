@@ -3,7 +3,7 @@
 </div>
 
 <!-- movies.component.html -->
-<div class="tvhows-container">
+<div class="tvshows-container">
 <div *ngFor="let tv of topRatedTVShows" class="tvshows-item" (click)="onTvShowClicked(tv)"> 
   <a [routerLink]="['/tvshow-details', tv.id]">
   <img [src]="tvservice.getImageUrl(tv.poster_path)" alt="{{ tv.title }}">

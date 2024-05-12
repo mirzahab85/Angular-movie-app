@@ -8,7 +8,9 @@
     <p><strong>First Aired: </strong> {{ details.release_date || details.first_air_date }} </p>
     <p><strong>Last Aired: </strong> {{ details.release_date || details.last_air_date }}</p>
 
-    <p><strong>Runtime: </strong> {{ details.run_time }}minutes</p>
+    <div *ngIf="details">
+      <p><strong>Runtime: </strong>{{ details.episode_run_time[0] }} minutes</p>
+      <p *ngIf="details.genres?.length">
     <p *ngIf="details?.genres?.length">
       <span class="label"><strong>Genre: </strong></span>
       <span *ngFor="let genre of details.genres"> {{ genre.name }} </span>

@@ -49,10 +49,13 @@ export class TvshowsComponent implements OnInit {
   }
 
   searchTvShow(searchTerm: string): void {
+    if (searchTerm.length >= 3) {
     this.tvservice.searchTvShow(searchTerm).subscribe((data: any) => {
       this.topRatedTVShows = data.results;
     });
+      this.loadTopRatedTvShows();
   }
+}
 
   onSearchInput(event: any): void {
     const searchTerm = event.target.value.trim();

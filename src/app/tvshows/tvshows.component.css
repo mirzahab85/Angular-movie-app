@@ -1,61 +1,128 @@
-.tvhows-container {
-    display: flex;
-    padding: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.tvshows-container {
+  display: flex;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .tvshows-item {
-    width: calc(20% - 16px);
-    display: flex;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    flex-direction: column;
+  width: calc(20% - 16px);
+  display: flex;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  flex-direction: column;
 }
 
 .tvshows-item img {
-    display: block;
-    width: 100%;
-    height: auto;
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .tvshows-item h3 {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .tvshows-item h3,
 .tvshows-item p {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 .search-container {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    
+  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+.search-container input[type="text"] {
+  width:  93%;
+  padding: 12px 30px;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  background-color: #f2f2f2;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: #999999;
+}
+
+/* Media queries for responsive design */
+@media screen and (min-width: 220px) {
+  /* Styles for small devices (e.g., phones) and larger */
+  .search-container {
+      width: 54%; /* Make the search container 80% of the viewport width */
   }
-  
+}
+
+@media screen and (min-width: 374px) {
+  /* Styles for small devices (e.g., phones) and larger */
+  .search-container {
+      width: 64%;
+  }
+}
+
+@media screen and (min-width: 410px) {
+  /* Styles for small devices (e.g., phones) and larger */
+  .search-container {
+      width: 68%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Styles for tablets and larger */
+  .search-container {
+      width: 80%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* Styles for laptops and larger */
+  .search-container {
+      width: 96%;
+  }
+}
+
+/* Responsive styles */
+@media screen and (min-width: 320px) {
+  /* Adjust layout for small devices (e.g., phones) */
+  .tvshows-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .tvshows-item {
+      width: calc(100% - 20px);
+      margin: 10px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  /* Adjust layout for medium devices (e.g., tablets) */
+  .tvshows-item {
+      width: calc(33.33% - 20px);
+  }
+
   .search-container input[type="text"] {
-    width:  93%;
-    padding: 12px 30px;
-    border: none;
-    /* border-radius: 0px; */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    background-color: #f2f2f2;
-    transition: box-shadow 0.3s, background-color 0.3s;
+      font-size: 16px;
   }
-  
-  .search-container input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #ffffff;
+}
+
+@media screen and (min-width: 992px) {
+  /* Adjust layout for large devices (e.g., laptops/desktops) */
+  .tvshows-item {
+      width: calc(20% - 40px);
   }
-  
-  .search-container input[type="text"]::placeholder {
-    color: #999999;
-  }
+}

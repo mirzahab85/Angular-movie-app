@@ -3,12 +3,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common'; // Import Location service
 import { TvService } from '../services/tv.service';
 
+
 @Component({
   selector: 'app-tvshow-details',
   templateUrl: './tvshow-details.component.html',
   styleUrls: ['./tvshow-details.component.css']
 })
 export class TvshowDetailsComponent implements OnInit {
+[x: string]: any;
   id: string = '';
   details: any = {}; // Initialize details as empty object
   loading: boolean = false;

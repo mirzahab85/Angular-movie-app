@@ -50,11 +50,13 @@ export class MoviesComponent implements OnInit {
   }
 
   searchMovies(searchTerm: string): void {
-    this.moviesService.searchMovies(searchTerm).subscribe((data: any) => {
+    if (searchTerm.length >= 3) {
+      this.moviesService.searchMovies(searchTerm).subscribe((data: any) => {
       this.topRatedMovies = data.results;
     });
+      this.loadTopRatedMovies();
   }
-
+  }
   onSearchInput(event: any): void {
     const searchTerm = event.target.value.trim();
     this.searchTerms.next(searchTerm); // Emit the search term to the searchTerms subject
