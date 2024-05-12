@@ -1,6 +1,6 @@
 <div class="home-container">
+  <h2>Top 10 Movies</h2>
     <div class="top-movies">
-    <h2>Top 10 Movies</h2>
     <div class="movies-container">
       <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
         <a [routerLink]="['/movie-details', movie.id]">
@@ -11,13 +11,16 @@
     </div>
 </div>
 <div class="top-tvshow">
-    <h2>Top 10 TV Shows</h2>
+  <div>
+    <h2 class="top">Top 10 TV Shows</h2>
+  </div>
     <div class="tvshow-container">
-      <div *ngFor="let movie of topRatedMovies" class="movie-item" (click)="onMovieClicked(movie)">
-        <a [routerLink]="['/movie-details', movie.id]">
-          <img [src]="moviesService.getImageUrl(movie.poster_path)" alt="{{ movie.title }}">
-          <h3>{{ movie.title }}</h3>
+      <div *ngFor="let tv of topRatedTVShow" class="tvshow-item" (click)="onMovieClicked(tv)">
+        <a [routerLink]="['/tvshow-details', tv.id]">
+          <img [src]="tvService.getImageUrl(tv.poster_path)" alt="{{ tv.name }}">
+          <h4>{{ tv.name }}</h4>
         </a>
       </div>
     </div>
+</div>
   

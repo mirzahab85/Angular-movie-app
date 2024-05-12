@@ -13,10 +13,12 @@ import { RouterModule } from '@angular/router';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit{
+tv: any;
 onMovieClicked(_t5: any) {
 throw new Error('Method not implemented.');
 }
   topRatedMovies: any;
+  topRatedTVShow: any;
 
 
   constructor(public moviesService: MoviesService, public tvService: TvService) { }
@@ -34,7 +36,7 @@ throw new Error('Method not implemented.');
 
   loadTopRatedTvShows(): void {
     this.tvService.getTopRatedTvShows().subscribe((data: any) => {
-      this.loadTopRatedTvShows = data.results.slice(0, 10);
+      this.topRatedTVShow = data.results.slice(0, 10);
     });
    }
   }
